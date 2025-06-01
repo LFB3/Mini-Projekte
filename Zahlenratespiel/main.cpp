@@ -8,9 +8,9 @@
 void printhighscore(int easy, int medium, int hard) {
     // Highscores anzeigen
     std::cout << "\n=== Highscores ===\n";
-    if (easy != 0) {std::cout << "Easy: " << highscoreeasy << " tries\n";}
-    if (medium != 0) {std::cout << "Medium: " << highscoremedium << " tries\n";}
-    if (hard != 0) {std::cout << "Hard: " << highscorehard << " tries\n";}
+    if (easy != 0) {std::cout << "Easy: " << easy << " tries\n";}
+    if (medium != 0) {std::cout << "Medium: " << medium << " tries\n";}
+    if (hard != 0) {std::cout << "Hard: " << hard << " tries\n";}
     
 }
 
@@ -66,16 +66,16 @@ int main() {
 
         // Schwierigkeit wählen
         while (true) {
-            difficulty = getSafeString("Choose difficulty (easy {1-50}, medium {1-100}, hard {1-200}): ");
+            difficulty = getSafeString("Choose difficulty ([1] easy {1-50}, [2] medium {1-100}, [3] hard {1-200}): ");
             std::transform(difficulty.begin(), difficulty.end(), difficulty.begin(), ::tolower); // klein schreiben
 
-            if (difficulty == "easy") {
+            if (difficulty == "easy" or difficulty == "1") {
                 maxNumber = EASY_MAX;
                 break;
-            } else if (difficulty == "medium") {
+            } else if (difficulty == "medium" or difficulty == "2") {
                 maxNumber = MEDIUM_MAX;
                 break;
-            } else if (difficulty == "hard") {
+            } else if (difficulty == "hard" or difficulty == "3") {
                 maxNumber = HARD_MAX;
                 break;
             } else {
